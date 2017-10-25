@@ -1,21 +1,22 @@
 // Select color input
 let color = null;
 
-// Select size input
-let height = 1, width = 1;
-
 // When size is submitted by the user, call makeGrid()
 $('#sizePicker').submit(function(event){
     event.preventDefault();
-    height = $('#input_height').val();
-    width = $('#input_width').val();
+    const height = $('#input_height').val();
+    const width = $('#input_width').val();
     color = $('#colorPicker').val();
 
-    makeGrid(height, width, color);
+    makeGrid(height, width);
+});
+
+$('#colorPicker').change(function(event){
+    color = $('#colorPicker').val();
 });
 
 
-function makeGrid(height, width, color) {
+function makeGrid(height, width) {
     // clear the canvas
      $('#pixel_canvas').empty();
 
